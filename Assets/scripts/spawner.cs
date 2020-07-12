@@ -17,11 +17,9 @@ public class spawner : MonoBehaviour
     void Update()
     {
         select = Random.Range(0, dirts.Length);
-        if ((gameManager.GetLeftScore() + gameManager.GetRightScore()) % 10 == 2){
-            if (max > 1)
-                max--;
-            else max = 3;
-        }
+        if (max > 0)
+            max -= Time.deltaTime;
+        else max = 0.5f;
     }
 
     // Update is called once per frame
