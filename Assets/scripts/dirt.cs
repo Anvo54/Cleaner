@@ -5,6 +5,7 @@ public class dirt : MonoBehaviour
     private bool onFloor = false;
     private bool cleaned = false;
     private bool setMinus = false;
+    private bool scoreSet = false;
 
     private SpriteRenderer spr;
     private Rigidbody2D tolloRB;
@@ -34,6 +35,17 @@ public class dirt : MonoBehaviour
                 setMinus = true;
             }
         }
+        if (cleaned && !scoreSet){
+            if (transform.position.x < -3.5f){
+                gameManager.SetLeftScore(1);
+                scoreSet = true;
+            }
+            if (transform.position.x > 3f){
+                gameManager.SetRightScore(1);
+                scoreSet = true;
+            }
+            
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -43,15 +55,6 @@ public class dirt : MonoBehaviour
             tolloRB.gravityScale = 2;
             onFloor = true;
             cleaned = true;
-        }
-    }
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "RightBin"){
-            gameManager.SetRightScore(1);
-        }
-        if (other.gameObject.tag == "LeftBin"){
-            gameManager.SetLeftScore(1);
         }
     }
 }
