@@ -33,7 +33,6 @@ public class dirt : MonoBehaviour
                     gameManager.RemoveRightScore();
                 setMinus = true;
             }
-            Destroy(gameObject, 1);
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -50,11 +49,9 @@ public class dirt : MonoBehaviour
     {
         if (other.gameObject.tag == "RightBin"){
             gameManager.SetRightScore(1);
-            Destroy(gameObject, 15);
         }
         if (other.gameObject.tag == "LeftBin"){
             gameManager.SetLeftScore(1);
-            Destroy(gameObject, 15);
         }
     }
 }

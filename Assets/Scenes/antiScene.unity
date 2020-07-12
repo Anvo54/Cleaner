@@ -397,8 +397,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 863, y: 1080}
+  m_AnchoredPosition: {x: -29, y: 133.9}
+  m_SizeDelta: {x: 1170, y: 812.133}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &442710063
 MonoBehaviour:
@@ -488,8 +488,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449336501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.12, z: -2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.27, y: -1.12, z: -2}
+  m_LocalScale: {x: 0.7659375, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -653,7 +653,7 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 8.788328, y: -2.3956141}
       - {x: 3.8961039, y: -2.337882}
-      - {x: 3.723426, y: -0.44193482}
+      - {x: 2.6101353, y: 0.14040184}
       - {x: 3.8017895, y: -2.564848}
       - {x: 9.017738, y: -2.5525522}
       - {x: 8.751467, y: 5.2535396}
@@ -715,7 +715,7 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 8.931288, y: -2.3777442}
       - {x: 4.0211926, y: -2.3736215}
-      - {x: 3.8671894, y: -0.4244089}
+      - {x: 3.3362353, y: 0.12367296}
       - {x: 3.8017895, y: -2.564848}
       - {x: 9.017738, y: -2.5525522}
       - {x: 8.930165, y: 5.271409}
