@@ -16,6 +16,7 @@ public class spawner : MonoBehaviour
 
     void Update()
     {
+        select = Random.Range(0, dirts.Length);
         if ((gameManager.GetLeftScore() + gameManager.GetRightScore()) % 10 == 2){
             if (max > 1)
                 max--;
@@ -26,9 +27,8 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     private IEnumerator Spawn()
     {
-        select = Random.Range(0, dirts.Length);
-        Instantiate(dirts[select], new Vector3(Random.Range(-2, 3), 5, 1.7f), Quaternion.identity);
-        Instantiate(dirts[select], new Vector3(Random.Range(-2, 3), 5, 1.7f), Quaternion.identity);
+        Instantiate(dirts[select], new Vector3(Random.Range(-2f, 3f), 5, 1.7f), Quaternion.identity);
+        Instantiate(dirts[select], new Vector3(Random.Range(-2f, 3f), 5, 1.7f), Quaternion.identity);
         yield return new WaitForSeconds(Random.Range(min, max));
         StartCoroutine("Spawn");
     }
