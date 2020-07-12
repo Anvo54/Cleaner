@@ -12,11 +12,17 @@ public class dirt : MonoBehaviour
         tolloRB = GetComponent<Rigidbody2D>();
         tolloCol = GetComponent<Collider2D>();
         spr = GetComponent<SpriteRenderer>();
+        speed = Random.Range(1.5f, 6);
     }
     void Update()
     {
         if (!onFloor)
             transform.Translate(Vector3.down *(speed * Time.deltaTime), Space.World); 
+        if (transform.position.y < -3f){
+            onFloor = true;
+            tolloCol.isTrigger = false;
+            tolloRB.gravityScale = 5;
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,16 +36,17 @@ public class dirt : MonoBehaviour
         {
             onFloor = true;
             tolloCol.isTrigger = false;
-            tolloRB.gravityScale = 1;
-            spr.color = Color.red;
+            spr.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 5));
             gameManager.SetLeftScore(-5);
             gameManager.SetRightScore(-5);
-            Destroy(gameObject, 5);
         }
         if (other.gameObject.tag == "dirt" && other.gameObject.transform.position.y < -2){
             onFloor = true;
             tolloCol.isTrigger = false;
             tolloRB.gravityScale = 1;
+            spr.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 5));
+            Destroy(gameObject, 1);
+
         }
     }
     void OnCollisionEnter2D(Collision2D other)

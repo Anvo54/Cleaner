@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
-    [SerializeField ] GameObject[] dirts;
+    [SerializeField] GameObject[] dirts;
     float min = 0;
     float max = 1.5f;
     int select;
