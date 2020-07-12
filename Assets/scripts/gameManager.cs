@@ -4,13 +4,19 @@ using UnityEngine;
 
 public static class gameManager
 {
-    static int score;
-    static float time;
+    static int rightScore;
+    static int leftScore;
 
-    public static int GetScore(){
-        return score;
+    public static int GetRightScore(){
+        return rightScore;
     }
-    public static int SetScore(int value){
-        return score += value;
+    public static int GetLeftScore(){
+        return leftScore;
+    }
+    public static int SetRightScore(int value){
+        return rightScore += value;
+    }
+    public static int SetLeftScore(int value){
+        return leftScore += value;
     }
 }

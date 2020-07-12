@@ -19,12 +19,12 @@ public class movement : MonoBehaviour
 
     private void move()
     {
-        if (Input.GetAxis("Horizontal") < 0){
+        if (Input.GetAxis("Horizontal") < 0 && transform.position.x > -3.22f){
             
             transform.localScale = new Vector3(-1, 1, 1);
             transform.Translate(Vector3.left * (speed * Time.deltaTime), Space.World);
         }
-        if (Input.GetAxis("Horizontal") > 0){
+        if (Input.GetAxis("Horizontal") > 0 && transform.position.x < 3.11f){
              transform.localScale = new Vector3(1, 1, 1);
             transform.Translate(Vector3.right * (speed * Time.deltaTime), Space.World);
         }
