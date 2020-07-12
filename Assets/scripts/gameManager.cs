@@ -19,4 +19,11 @@ public static class gameManager
     public static int SetLeftScore(int value){
         return leftScore += value;
     }
+    public static int RemoveRightScore(){
+        return rightScore--;
+    }
+    public static int RemoveLeftScore(){
+        return leftScore--;
+    }
+
 }

@@ -3,6 +3,9 @@
 public class dirt : MonoBehaviour
 {    // Start is called before the first frame update
     private bool onFloor = false;
+    private bool cleaned = false;
+    private bool setMinus = false;
+
     private SpriteRenderer spr;
     private Rigidbody2D tolloRB;
     private Collider2D tolloCol;
@@ -18,10 +21,19 @@ public class dirt : MonoBehaviour
     {
         if (!onFloor)
             transform.Translate(Vector3.down *(speed * Time.deltaTime), Space.World); 
-        if (transform.position.y < -3f){
+        if (transform.position.y < -3f && cleaned == false){
             onFloor = true;
             tolloCol.isTrigger = false;
             tolloRB.gravityScale = 5;
+            spr.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 5));
+            if (!setMinus){
+                if(transform.position.x < 0)
+                    gameManager.RemoveLeftScore();
+                else
+                    gameManager.RemoveRightScore();
+                setMinus = true;
+            }
+            Destroy(gameObject, 1);
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -31,32 +43,17 @@ public class dirt : MonoBehaviour
             tolloCol.isTrigger = false;
             tolloRB.gravityScale = 2;
             onFloor = true;
-        }
-        if (other.gameObject.tag == "Floor")
-        {
-            onFloor = true;
-            tolloCol.isTrigger = false;
-            spr.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 5));
-            gameManager.SetLeftScore(-5);
-            gameManager.SetRightScore(-5);
-        }
-        if (other.gameObject.tag == "dirt" && other.gameObject.transform.position.y < -2){
-            onFloor = true;
-            tolloCol.isTrigger = false;
-            tolloRB.gravityScale = 1;
-            spr.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 5));
-            Destroy(gameObject, 1);
-
+            cleaned = true;
         }
     }
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "RightBin"){
-            gameManager.SetRightScore(10);
+            gameManager.SetRightScore(1);
             Destroy(gameObject, 15);
         }
         if (other.gameObject.tag == "LeftBin"){
-            gameManager.SetLeftScore(10);
+            gameManager.SetLeftScore(1);
             Destroy(gameObject, 15);
         }
     }
