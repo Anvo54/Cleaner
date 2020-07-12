@@ -6,7 +6,7 @@ public class spawner : MonoBehaviour
 {
     [SerializeField] GameObject[] dirts;
     float min = 0;
-    float max = 3f;
+    float max = 0.5f;
     int select;
     // Start is called before the first frame update
     void Start()
